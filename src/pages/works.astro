@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/layouts.astro';
+import Kaisetu from '../layouts/kaisetu.astro';
+---
+
+<Layout title="水胆の作品">
+
+  <h1>作品紹介</h1>
+
+  <p>水胆の作品の紹介・解説を行います</p>
+
+<div class="modal-icons">
+
+  <Kaisetu>
+
+  <!-- 丸いアイコンにする画像 -->
+
+    <img
+      slot="icon"
+      src="/images/んぴゅ.jpg"
+      alt="作品1"
+    >
+
+
+    <!-- 左側に表示する画像 -->
+
+    <img
+      slot="image"
+      src="/images/んぴゅ.jpg"
+      alt="作品1"
+    >
+
+
+    <!-- 右側に表示する文章 -->
+
+    <div slot="text">
+
+      <h2>ようこそ混乱の世界</h2>
+      <small>2026年5月頃制作</small>
+
+      <p>
+        通称んぴゅ子
+      </p>
+
+      <p>
+        いつまで経っても慣れないコンピュータの操作に疲れた水胆の図。
+        Edgeは荒波に、Fire Foxは女の子を襲う狐の化け物に、Windousは月にして浮世絵風に仕立てました。
+      </p>
+
+    </div>
+
+
+</Kaisetu>
+
+<Kaisetu>
+
+  <!-- 丸いアイコンにする画像 -->
+
+    <img
+      slot="icon"
+      src="/images/石油.jpg"
+      alt="作品2"
+    >
+
+
+    <!-- 左側に表示する画像 -->
+
+    <img
+      slot="image"
+      src="/images/石油.jpg"
+      alt="作品3"
+    >
+
+
+    <!-- 右側に表示する文章 -->
+
+    <div slot="text">
+
+      <h2>贈る</h2>
+      <small>2026年6月頃制作</small>
+
+      <p>
+        石油で作った百合の花
+      </p>
+
+      <p>
+        大好きな人と油田地域で心中すれば、10億年石油として一緒にいられるのではないかと考えて作成しました。<br>
+        有識者に聞いたところ、人間は石油になれないそうなので、この恋愛は実現できません、残念。
+      </p>
+
+    </div>
+</Kaisetu>
+
+<Kaisetu>
+
+  <!-- 丸いアイコンにする画像 -->
+
+    <img
+      slot="icon"
+      src="/images/あせも.jpg"
+      alt="作品2"
+    >
+
+
+    <!-- 左側に表示する画像 -->
+
+    <img
+      slot="image"
+      src="/images/あせも.jpg"
+      alt="作品3"
+    >
+
+
+    <!-- 右側に表示する文章 -->
+
+    <div slot="text">
+
+      <h2>大嫌い</h2>
+      <small>2026年2月頃制作</small>
+
+      <p>
+        通称あせもちゃん
+      </p>
+
+      <p>
+        引っ搔いたあせもが流星群みたいできれいだったので作成しました。あせもは掻かずに薬を塗りましょう。引っ掻き痕が窪んだりシミになったりしてしまいます。
+      </p>
+
+    </div>
+</Kaisetu>
+
+<Kaisetu>
+
+  <!-- 丸いアイコンにする画像 -->
+
+    <img
+      slot="icon"
+      src="/images/メンヘラ.jpg"
+      alt="作品2"
+    >
+
+
+    <!-- 左側に表示する画像 -->
+
+    <img
+      slot="image"
+      src="/images/メンヘラ.jpg"
+      alt="作品4"
+    >
+
+
+    <!-- 右側に表示する文章 -->
+
+    <div slot="text">
+
+      <h2>メンヘラ</h2>
+      <small>2026年7月頃制作</small>
+
+      <p>
+        こうであってたまるか
+      </p>
+
+      <p>
+      誰からも見られてほしいのに、自分のことは見ていない。やることなすことすべてが絡みついて自分の妨げとなってしまう。そんな水胆の持つメンヘラのイメージを作成しました。<br>
+      2次元ならまだしも3次元のメンヘラは本当に迷惑ということを、メンヘラを自覚している人は肝に銘じてください。
+      </p>
+
+    </div>
+</Kaisetu>
+
+<Kaisetu>
+
+  <!-- 丸いアイコンにする画像 -->
+
+    <img
+      slot="icon"
+      src="/images/先輩.jpg"
+      alt="作品2"
+    >
+
+
+    <!-- 左側に表示する画像 -->
+
+    <img
+      slot="image"
+      src="/images/先輩.jpg"
+      alt="作品5"
+    >
+
+
+    <!-- 右側に表示する文章 -->
+
+    <div slot="text">
+
+      <h2>先輩4色チャレンジ</h2>
+      <small>2026年8月頃制作</small>
+
+      <p>
+        できる限り汚さを排除しました
+      </p>
+
+      <p>
+      とあるミームの4色のみを使った4色チャレンジです。ブレイキンの人が大きめの服を着るのは多分映えるからだと思います。
+      </p>
+
+    </div>
+</Kaisetu>
+
+
+</div>
+
+
+</Layout>
+
+<style>
+.modal-icons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 2rem;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin-top: 2rem;
+}
+</style>

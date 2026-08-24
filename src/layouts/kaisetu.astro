@@ -1,0 +1,523 @@
+---
+const { title } = Astro.props;
+---
+
+<div class="modal-wrapper">
+
+  <!-- 丸いアイコン -->
+  <button class="modal-icon">
+
+    <slot name="icon" />
+
+  </button>
+
+
+  <!-- モーダル -->
+  <div class="modal">
+
+    <!-- 暗い背景 -->
+    <div class="modal-background"></div>
+
+
+    <!-- 白いプレート -->
+    <div class="modal-content">
+
+      <!-- 閉じるボタン -->
+      <button class="modal-close">
+        ×
+      </button>
+
+
+      <!-- 左右 -->
+      <div class="modal-body">
+
+        <!-- 左：画像 -->
+        <div class="modal-image">
+
+          <slot name="image" />
+
+        </div>
+
+
+        <!-- 右：文章 -->
+        <div class="modal-text">
+
+          <slot name="text" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<style>
+
+/* =========================
+   丸いアイコン
+   ========================= */
+
+.modal-icon {
+
+  width: 130px;
+  height: 130px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background-color: #fff;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.10);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.modal-icon:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* アイコン内の画像 */
+
+.modal-icon :global(img) {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+}
+
+
+/* =========================
+   モーダル
+   ========================= */
+
+.modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+}
+
+
+/* JavaScriptで表示 */
+
+.modal.active {
+
+  display: flex;
+
+}
+
+
+/* =========================
+   暗い背景
+   ========================= */
+
+.modal-background {
+
+  position: absolute;
+
+  inset: 0;
+
+  background-color:
+    rgba(0, 0, 0, 0.7);
+
+}
+
+
+/* =========================
+   白いプレート
+   ========================= */
+
+.modal-content {
+
+  position: relative;
+
+  z-index: 10000;
+
+  width: 750px;
+
+  max-width: 90vw;
+
+  max-height: 85vh;
+
+  padding: 2rem;
+
+  box-sizing: border-box;
+
+  background-color: #fff;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.3);
+
+  overflow: auto;
+
+}
+
+
+/* =========================
+   左右配置
+   ========================= */
+
+.modal-body {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 2rem;
+
+}
+
+
+/* =========================
+   左：画像
+   ========================= */
+
+.modal-image {
+
+  width: 45%;
+
+  flex-shrink: 0;
+
+}
+
+
+.modal-image :global(img) {
+
+  width: 100%;
+
+  max-height: 60vh;
+
+  object-fit: contain;
+
+  display: block;
+
+  border-radius: 8px;
+
+}
+
+
+/* =========================
+   右：文章
+   ========================= */
+
+.modal-text {
+
+  flex: 1;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================
+   閉じるボタン
+   ========================= */
+
+.modal-close {
+
+  position: absolute;
+
+  top: 10px;
+  right: 15px;
+
+  border: none;
+
+  background: none;
+
+  color: #888;
+
+  font-size: 32px;
+
+  cursor: pointer;
+
+}
+
+
+.modal-close:hover {
+
+  color: #f18d9e;
+
+}
+
+.modal-wrapper {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+/* =========================
+   スマートフォン用
+   ========================= */
+
+@media (max-width: 600px) {
+
+  /* =========================
+     丸いアイコン
+     ========================= */
+
+  .modal-icon {
+
+    width: 100px;
+    height: 100px;
+
+  }
+
+
+  /* =========================
+     白いプレート
+     ========================= */
+
+  .modal-content {
+
+    width: 90vw;
+
+    max-width: 90vw;
+
+    max-height: 90vh;
+
+    padding: 1.2rem;
+
+    border-radius: 12px;
+
+  }
+
+
+  /* =========================
+     左右を縦並びにする
+     ========================= */
+
+  .modal-body {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1rem;
+
+  }
+
+
+  /* =========================
+     画像
+     ========================= */
+
+  .modal-image {
+
+    width: 100%;
+
+  }
+
+
+  .modal-image :global(img) {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    max-height: 45vh;
+
+    object-fit: contain;
+
+  }
+
+
+  /* =========================
+     文章
+     ========================= */
+
+  .modal-text {
+
+    width: 100%;
+
+    line-height: 1.7;
+
+    font-size: 0.9rem;
+
+  }
+
+
+  .modal-text h2 {
+
+    font-size: 1.3rem;
+
+  }
+
+
+  .modal-text h3 {
+
+    font-size: 1.2rem;
+
+  }
+
+
+  /* =========================
+     閉じるボタン
+     ========================= */
+
+  .modal-close {
+
+    top: 5px;
+
+    right: 8px;
+
+    font-size: 28px;
+
+  }
+
+}
+
+
+/* =========================
+   さらに小さいスマートフォン
+   ========================= */
+
+@media (max-width: 400px) {
+
+  .modal-icon {
+
+    width: 85px;
+    height: 85px;
+
+  }
+
+
+  .modal-content {
+
+    width: 94vw;
+
+    max-width: 94vw;
+
+    padding: 1rem;
+
+  }
+
+
+  .modal-body {
+
+    gap: 0.8rem;
+
+  }
+
+
+  .modal-image :global(img) {
+
+    max-height: 40vh;
+
+  }
+
+
+  .modal-text {
+
+    font-size: 0.85rem;
+
+  }
+
+
+  .modal-text h2 {
+
+    font-size: 1.15rem;
+
+  }
+
+
+  .modal-close {
+
+    font-size: 26px;
+
+  }
+
+}
+
+</style>
+
+<script>
+
+const wrappers =
+  document.querySelectorAll(".modal-wrapper");
+
+
+wrappers.forEach((wrapper) => {
+
+  const icon =
+    wrapper.querySelector(".modal-icon");
+
+  const modal =
+    wrapper.querySelector(".modal");
+
+  const close =
+    wrapper.querySelector(".modal-close");
+
+  const background =
+    wrapper.querySelector(".modal-background");
+
+
+  /* アイコンをクリック */
+
+  icon.addEventListener("click", () => {
+
+    modal.classList.add("active");
+
+  });
+
+
+  /* ×で閉じる */
+
+  close.addEventListener("click", () => {
+
+    modal.classList.remove("active");
+
+  });
+
+
+  /* 背景をクリックして閉じる */
+
+  background.addEventListener("click", () => {
+
+    modal.classList.remove("active");
+
+  });
+
+});
+
+
+</script>
