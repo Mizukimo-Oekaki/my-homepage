@@ -27,22 +27,53 @@ import Layout from '../layouts/layouts.astro';
 </Layout>
 
 <style>
+
 h1 {
-    text-align: center;
-    color: #f18d9e;
-}
-w {
-     color: #f18d9e;
-}
-t {
-     color: #f18d9e;
+  text-align: center;
+  color: #f18d9e;
 }
 
+
+w {
+  color: #f18d9e;
+}
+
+
+t {
+  color: #f18d9e;
+}
+
+
+/* =========================
+   PC版の画像
+   ========================= */
+
 img {
-  width: 600;
+  width: 600px;
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+
+/* =========================
+   スマートフォン用
+   ========================= */
+
+@media (max-width: 600px) {
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  h1 {
+    font-size: 1.7rem;
+  }
 
 }
+
 </style>
