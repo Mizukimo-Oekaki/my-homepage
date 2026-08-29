@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/layouts.astro';
 import Kaisetu from '../layouts/kaisetu.astro';
+import Kaisetu2 from '../layouts/kaisetu2.astro';
 ---
 
 <Layout title="水胆の作品">
@@ -205,6 +206,46 @@ import Kaisetu from '../layouts/kaisetu.astro';
 
     </div>
 </Kaisetu>
+
+<Kaisetu2>
+
+  <!-- 丸いアイコンにする画像 -->
+
+    <img
+      slot="icon"
+      src="/images/パスタ.png"
+      alt="作品6"
+    >
+
+
+    <!-- 左側に表示する画像 -->
+
+    <img
+      slot="image"
+      src="/images/パスタ.png"
+      alt="作品6"
+    >
+
+
+    <!-- 右側に表示する文章 -->
+
+    <div slot="text">
+
+      <h2>ミミズパスタ定食</h2>
+      <small>2026年3月頃制作</small>
+
+      <p>
+        原曲：ミミズパスタ定食 / 鯖頭 様
+      </p>
+
+      <p>
+      ミクの日2026に向けて制作した作品です。<br>
+      このイラストの原曲となった鯖頭様の「ミミズパスタ定食」は(いい意味で)恐ろしい作品で、このパスタの主は何をしたかったのか、最終的にどうなったのかが全く理解できませんでした。<br>
+      それなのに、疾走感のあるメロディーとサビの歌詞が頭から離れません。いつの間にか口ずさんでいる楽しい曲です。
+      </p>
+
+    </div>
+</Kaisetu2>
 
 
 </div>
