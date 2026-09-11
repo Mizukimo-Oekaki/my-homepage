@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/links.astro';
+import LongLinks from '../layouts/long-link.astro';
+---
+
+<Layout title="About | リンク">
+		<h1>
+        リンク集
+        </h1>
+		<p>
+        水胆やこのホームページに関係したリンクです
+        </p>
+
+        <LongLinks
+    href="https://toramutton.me/"
+    image="/images/トラマトさん.jpg"
+    alt="トラマトさん"
+    title="トラマトさん"
+    description="このホームページ作成のきっかけになったお方です"
+  />
+
+        <!-- リンク1 -->
+  <LongLinks
+    href="https://www.pixiv.net/users/78629423"
+    image="/images/水胆.png"
+    alt="pixiv"
+    title="pixiv"
+    description="水胆のメインの活動拠点です"
+  />
+
+
+  <!-- リンク2 -->
+  <LongLinks
+    href="https://x.com/Mizukimo_Oekaki"
+    image="/images/アイコン.png"
+    alt="X"
+    title="X"
+    description="イラストのほかにも割とどうでもいい情報も投稿します"
+  />
+
+</Layout>
+
+
+<style>
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+small {
+  color: rgb(228, 228, 228);
+}
+
+</style>

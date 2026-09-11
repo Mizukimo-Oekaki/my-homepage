@@ -34,33 +34,7 @@ const { title } = Astro.props;
   </main>
 
 
-  <!-- 丸型リンクアイコン -->
-  <div class="link-icons">
-
-    <!-- pixiv -->
-    <a
-      href="https://www.pixiv.net/users/78629423"
-      class="link-icon"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="pixiv"
-    >
-      <img src="/images/pixiv.jpg" alt="p">
-    </a>
-
-    <!-- X -->
-    <a
-      href="https://x.com/Mizukimo_Oekaki"
-      class="link-icon"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="X"
-    >
-      <img src="/images/logo-black.png" alt="X">
-    </a>
-
-  </div>
-
+ 
 
   <footer>
     © 2026　水胆
@@ -112,59 +86,6 @@ main {
 }
 
 
-/* 丸型リンクアイコン */
-.link-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 1.2rem;
-
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-
-/* 丸いアイコン */
-.link-icon {
-  width: 60px;
-  height: 60px;
-
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: #fff;
-
-  color: #5bc8ac;
-  text-decoration: none;
-
-  font-size: 1.4rem;
-  font-weight: bold;
-
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    color 0.2s ease;
-}
-
-.link-icon img {
-  width: 24px;
-  height: 24px;
-}
-
-/* マウスを乗せたとき */
-.link-icon:hover {
-  transform: translateY(-5px);
-
-  color: #f18d9e;
-
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
-}
 
 
 /* フッター */
@@ -260,33 +181,7 @@ footer {
   }
 
 
-  /* =========================
-     SNSアイコン
-     ========================= */
-
-  .link-icons {
-    gap: 0.8rem;
-
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-
-    flex-wrap: wrap;
-  }
-
-
-  .link-icon {
-    width: 55px;
-    height: 55px;
-
-    flex-shrink: 0;
-  }
-
-
-  .link-icon img {
-    width: 22px;
-    height: 22px;
-  }
-
+ 
 
   /* =========================
      ヘッダー画像
@@ -358,25 +253,7 @@ footer {
   }
 
 
-  /* SNSアイコン */
-
-  .link-icons {
-    gap: 0.7rem;
-  }
-
-
-  .link-icon {
-    width: 50px;
-    height: 50px;
-  }
-
-
-  .link-icon img {
-    width: 20px;
-    height: 20px;
-  }
-
-
+ 
   /* ヘッダー画像 */
 
   .img1 {
