@@ -1,8 +1,10 @@
 ---
 const { title } = Astro.props;
+import { ClientRouter } from 'astro:transitions';
 ---
 <html lang="ja">
 <head>
+<ClientRouter />
     <!-- ファビコン -->
     <link rel="icon" href="/images/水胆.png">
 
@@ -34,21 +36,60 @@ const { title } = Astro.props;
   <link
     href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap"
     rel="stylesheet">
-
-   <img src="/images/水胆.png" alt="ヘッダー" class="img1">
 </head>
 
 <body>
 
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/works">Works</a>
-      <a href="/links">Links</a>
-      <a href="/articles">Articles</a>
-    </nav>
-  </header>
+ <header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/works">Works</a>
+    <a href="/links">Links</a>
+    <a href="/articles">Articles</a>
+  </nav>
+
+  <div class="bgm-control" transition:persist="bgm-control">
+  <audio id="bgm" loop preload="auto">
+    <source src="/musics/BGM1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button
+    id="bgm-toggle"
+    class="bgm-button"
+    type="button"
+    aria-label="BGMを再生"
+  >
+    <span class="bgm-label">Click me!</span>
+    <img src="/images/水胆.png" alt="" class="img1" />
+    <span class="bgm-label"><small>BGM</small></span>
+  </button>
+</div>
+</header>
+
+<script>
+  const bgm = document.querySelector('#bgm');
+  const button = document.querySelector('#bgm-toggle');
+
+  button?.addEventListener('click', async () => {
+    if (!(bgm instanceof HTMLAudioElement)) return;
+
+    if (bgm.paused) {
+      try {
+        await bgm.play();
+        button.setAttribute('aria-label', 'BGMを停止');
+        button.classList.add('is-playing');
+      } catch (error) {
+        console.error('BGMを再生できませんでした', error);
+      }
+    } else {
+      bgm.pause();
+      button.setAttribute('aria-label', 'BGMを再生');
+      button.classList.remove('is-playing');
+    }
+  });
+</script>
+
 
 
   <main>
@@ -93,6 +134,43 @@ const { title } = Astro.props;
 
 
 <style>
+
+header {
+  display: flex;
+  flex-direction: row; /* 横並びにする */
+  align-items: center; /* Homeなどの文字と高さを中央で揃える */
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 26px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.bgm-control {
+  margin-left: auto;
+}
+
+.bgm-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font: inherit;
+}
+
+.img1 {
+  display: block;
+  width: 58px; /* 画像が大きければここを調整 */
+  height: 58px;
+  object-fit: contain;
+}
 
 body {
   max-width: 720px;
