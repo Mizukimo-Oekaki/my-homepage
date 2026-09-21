@@ -50,7 +50,7 @@ import { ClientRouter } from 'astro:transitions';
     
   </nav>
 
-  <div class="bgm-control" transition:persist="bgm-control">
+  <div class="bgm-control" transition:persist>
   <audio id="bgm" loop preload="auto">
     <source src="/musics/BGM1.mp3" type="audio/mpeg" />
   </audio>
@@ -61,7 +61,6 @@ import { ClientRouter } from 'astro:transitions';
     type="button"
     aria-label="BGMを再生"
   >
-
     <img src="/images/水胆.png" alt="" class="img1" />
     <span class="bgm-label"><small>BGM</small></span>
   </button>
@@ -69,26 +68,48 @@ import { ClientRouter } from 'astro:transitions';
 </header>
 
 <script>
-  const bgm = document.querySelector('#bgm');
-  const button = document.querySelector('#bgm-toggle');
+  function setupBgm() {
+    const bgm = document.querySelector('#bgm');
+    const button = document.querySelector('#bgm-toggle');
 
-  button?.addEventListener('click', async () => {
     if (!(bgm instanceof HTMLAudioElement)) return;
+    if (!(button instanceof HTMLButtonElement)) return;
 
-    if (bgm.paused) {
-      try {
-        await bgm.play();
-        button.setAttribute('aria-label', 'BGMを停止');
-        button.classList.add('is-playing');
-      } catch (error) {
-        console.error('BGMを再生できませんでした', error);
+    // すでに登録済みなら何もしない
+    if (button.dataset.bgmInitialized === 'true') return;
+
+    button.dataset.bgmInitialized = 'true';
+
+    button.addEventListener('click', async () => {
+      if (bgm.paused) {
+        try {
+          await bgm.play();
+
+          button.setAttribute('aria-label', 'BGMを停止');
+          button.classList.add('is-playing');
+        } catch (error) {
+          console.error('BGMを再生できませんでした', error);
+        }
+      } else {
+        bgm.pause();
+
+        button.setAttribute('aria-label', 'BGMを再生');
+        button.classList.remove('is-playing');
       }
-    } else {
-      bgm.pause();
-      button.setAttribute('aria-label', 'BGMを再生');
-      button.classList.remove('is-playing');
+    });
+
+    // ページ遷移後も再生状態を表示に反映
+    if (!bgm.paused) {
+      button.setAttribute('aria-label', 'BGMを停止');
+      button.classList.add('is-playing');
     }
-  });
+  }
+
+  // 初回
+  setupBgm();
+
+  // Astroのページ遷移後
+  document.addEventListener('astro:page-load', setupBgm);
 </script>
 
 
